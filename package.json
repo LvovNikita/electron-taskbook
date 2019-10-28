@@ -1,0 +1,31 @@
+{
+  "name": "electronBook",
+  "version": "1.0.2",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "electron-build": "electron-builder",
+    "build": "yarn electron-build",
+    "electron-pack": "build --em.main=electron.js",
+    "preelectron-pack": "yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikita Lvov",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^5.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "handlebars": "^4.4.5",
+    "jquery": "3.2.1",
+    "popper.js": "1.14.3"
+  },
+  "build": {
+    "appId": "electronBook",
+    "files": [],
+    "extends": null
+  },
+  "homepage": "./"
+}
