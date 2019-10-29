@@ -37,8 +37,8 @@ $(() => {
         "id": 5,
         "title": "Тролли атакуют!",
         "text": "Тролли атаковали форум! Чтобы нейтрализовать опасность, удалите все гласные буквы из комментариев троллей (напишите функцию, которая принимает строку и возвращает её без гласных букв).",
-        "example": "Ввод: \"This website is for losers LOL!\" Вывод: \"Ths wbst s fr lsrs LL!\"",
-        "js_answer": "a = \"This website is for losers LOL!\"; console.log(a.replace(/[a,e,i,o,u,y]/ig, \"\"));"
+        "example": "Ввод: 'This website is for losers LOL!' Вывод: 'Ths wbst s fr lsrs LL!'",
+        "js_answer": "a = 'This website is for losers LOL!'; console.log(a.replace(/[a,e,i,o,u,y]/ig, ''));"
       },
       {
         "id": 6,
@@ -182,143 +182,143 @@ $(() => {
       },
       {
         "id": 26,
-        "title": "",
-        "text": "",
+        "title": "Является ли треугольником?",
+        "text": "Напишите функцию, которая принимает три целых числа a, b, c. Функция должна вернуть true, если может быть построен треугольник со сторонами a, b, c и false в противном случае.",
         "example": "",
-        "js_answer": ""
+        "js_answer": "is_triangle = (a, b, c) => {sides = [a, b, c].sort((x, y) => {return x - y});if (sides[0] + sides[1] > sides[2]) {return true};return false;}console.log(is_triangle(11, 6, 6));"
       },
       {
         "id": 27,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Подпрыгивающие мячи",
+        "text": "Ребёнок играет с мячиком на n-ом этаже высотного здания. Высота этого этажа h известна. Он бросает мячик из окна. Мяч подпрыгивает, например, на две-трети высоты h (bounce = 0.66). Его мама смотрит в окно на высоте 1.5 метра от земли. Как много раз она увидит пролетающий мимо её окна мяч (считая, когда он пролетает и вниз и вверх)? <br><br>Три условия должны соблюдаться для чистоты эксперимента:<ul><li>h должна быть больше 0</li><li>bounce больше 0, но меньше 1</li><li>уровень окна мамы меньше, чем h</li></ul>Если все три условия соблюдаются, верните результат в виде целого числа, если нет — верните –1.",
+        "example": "h = 3, bounce = 0.66, window = 1.5, результат = 3 <br>h = 3, bounce = 1, window = 1.5, результат = -1 <br>",
+        "js_answer": "bounce = (h, bounce, wndw) => {if (h > 0 && 1 > bounce > 0 && wndw < h) {res = 0;for (; h >= wndw; h *= bounce) {res += 1};return res*2 - 1;}return -1;}console.log(bounce(3, 0.66, 1.5));"
       },
       {
         "id": 28,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Комплементарность ДНК",
+        "text": "В дезоксирибонуклеиновой кислоте (ДНК) символы A и T, а так же C и G комплементарны друг другу. У вас есть функция с одной спиралью ДНК, вам нужно получить комплементарную сторону.",
+        "example": "DNA_strand ('ATTGC') = 'TAACG' <br> DNA_strand ('GTAT') = 'CATA' <br>",
+        "js_answer": "DNA_strand = DNA => {res = '';for(elem in DNA) {switch (DNA[elem]){case 'A': res += 'T'; break;case 'C': res += 'G'; break;case 'G': res += 'C'; break;case 'T': res += 'A'; break;default: 0;}}return res;}console.log(DNA_strand('ATTGC'));</pre>"
       },
       {
         "id": 29,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Без наибольшего и наименьшего",
+        "text": "Найти сумму без наибольшего и наименьшего элементов массива.",
+        "example": "[6, 2, 1, 8, 10] == 16<br>[1, 1, 11, 2, 3] == 6<br>",
+        "js_answer": "a = [6, 2, 1, 8, 10];a = a.filter(elem => {return elem != Math.max(...a) && elem != Math.min(...a) });console.log(a);"
       },
       {
         "id": 30,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Развёрнутая форма числа",
+        "text": "Запишите число в развёрнутой форме.",
+        "example": "expanded_form(12) == '10 + 2'<br>expanded_form(42) == '40 + 2'<br>expanded_form(70304) == '70000 + 300 + 4'<br>",
+        "js_answer": "expanded_form = num => {res = '';for (i = 0; Math.floor(num/10) != num; i++) {if (num % 10) {res = num % 10 * Math.pow(10, i) + ' + ' + res}num = Math.floor(num/10);}console.log(res.slice(0,-3))}expanded_form(70304)"
       },
       {
         "id": 31,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Повторяющиеся символы",
+        "text": "Напишите функцию, которая вернёт количество символов (без чувствительности к регистру), повторяющихся более одного раза в строке. Строка может содержать как буквы, так и цифры.",
+        "example": "'abcde' == 0 // повторяющиеся символы отсутствуют<br>'aabbcde' == 2 // 'a' и 'b'<br>'aabBcde' == 2 // 'a' и 'b' (заглавная b учитывается) <br>'indivisibility' == 1 // 'i' встречается шесть раз <br>'Indivisibilities' == 2 	// 'i' встречается семь раз, а 's' — дважды <br>'aA11' == 2 // 'a' и '1' <br>'ABBA' == 2 // 'A' и 'B' по два раза<br>",
+        "js_answer": "count_duplicates = (a) => {a = Array.from(a.toLowerCase());obj = {};a.forEach((elem) => {obj[elem] == undefined ? obj[elem] = 1 : obj[elem] += 1;});ctr = 0;for (key in obj) {obj[key] > 1 ? ctr++ : 0}return ctr;}console.log(count_duplicates('Indivisibilities'));"
       },
       {
         "id": 32,
-        "title": "",
-        "text": "",
+        "title": "Пробелы",
+        "text": "Удалите все лишние пробелы из строки (между словами, в начале и в конце строки).",
         "example": "",
-        "js_answer": ""
+        "js_answer": "trim = a => {re'turn a.replace(/\s+/g, ' ').trim()}console.log(trim('   hello  world '));"
       },
       {
         "id": 33,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Порядок элементов",
+        "text": "Напишите функцию, которая принимает в качестве аргумента последовательность символов и возвращает массив всех элементов, встречающихся во входной строке в исходном порядке.",
+        "example": "unique_in_order('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']<br>unique_in_order('ABBCcAD') == ['A', 'B', 'C', 'c', 'A', 'D']<br>unique_in_order([1,2,2,3,3]) == [1,2,3]<br>",
+        "js_answer": "unique_in_order = a => {res = [];for (letter in a) {a[letter] != a[letter - 1] ? res.push(a[letter]) : 0}return res;};console.log(unique_in_order('AAAABBBCCDAABBB'));"
       },
       {
         "id": 34,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Выборочная сортировка",
+        "text": "Ваша задача — отсортировать нечётные числа в массиве, при этом не перемещая чётные числа. Ноль будем считать чётным.",
+        "example": "sort_array([<b>5</b>, <b>3</b>, 2, 8, <b>1</b>, 4]) == [1, 3, 2, 8, 5, 4]<br>",
+        "js_answer": "sort_array = a => {odd = a.filter(num => num % 2 != 0).sort();i = 0;for (elem in a) {if (a[elem] % 2 != 0) {a[elem] = odd[i]; i++};}return a;}console.log(sort_array([5, 3, 2, 8, 1, 4]));"
       },
       {
         "id": 35,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Сумма первых n элементов",
+        "text": "  Вычислите сумму первых n элементов последовательности: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 + ... <br><br>Необходимо округлить ответ до 2 знаков после запятой",
+        "example": "SeriesSum(1) == 1 == 1.00 <br>SeriesSum(2) == 1 + 1/4 == 1.25 <br>SeriesSum(5) == 1 + 1/4 + 1/7 + 1/10 + 1/13 == 1.57<br>",
+        "js_answer": "seriesSum = a => {res = 1;for (i = 1; i < a; i++) {res += 1/(i*3 + 1)};return res.toFixed(2);};console.log(seriesSum(5));"
       },
       {
         "id": 36,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Цифры квадратов",
+        "text": "Дано два целых числа n >= 0 и 0 <= d <= 9. Возведите в квадрат все числа k (0 <= k <= n). Посчитайте количество цифр d, используемых в записи всех k<sup>2</sup>. Создайте функцию nb_dig(), которая принимает n и d в качестве аргументов и возвращает ответ. Не забывайте, что 121, например, имеет две единицы в записи числа.",
+        "example": "nb_dig(10, 1) == 4 <br>// Так как для чисел 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 мы используем цифру 1 в записи 1, 16, 81, 100<br><br>nb_dig(25, 1) == 11 <br>// 1, 4, 9, 10, 11, 12, 13, 14, 19, 21 при возведении в квадрат дают 1, 16, 81, 100, 121, 144, 169, 196, 361, 441<br>",
+        "js_answer": "nb_dig = (n, d) => {squares = '';for (i = 0; i <= n; i++) {squares += i*i};return squares.split(d).length - 1;};console.log(nb_dig(25, 1));"
       },
       {
         "id": 37,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Склейка строк",
+        "text": "Напишите аналог функции .join. Назовём её smash. На вход функции поступает массив слов, результатом работы функции должно быть склеенное (с пробелами между словами!) предложение.",
+        "example": "smash(['hello', 'world', 'this', 'is', 'great']) == 'hello world this is great'",
+        "js_answer": "smash = a => {res = '';for (elem in a) {res = res + a[elem] + ' '};return res.slice(0, -1);};console.log(smash(['hello', 'world', 'this', 'is', 'great']));"
       },
       {
         "id": 38,
-        "title": "",
-        "text": "",
-        "example": "",
+        "title": "Разность массивов",
+        "text": "Необходимо написать функцию, которая вычитает элементы одного массива из другого.",
+        "example": "array_diff([1,2],[1]) == [2]<br>array_diff([1,2,2,2,3],[2]) == [1,3]<br>",
         "js_answer": ""
       },
       {
         "id": 39,
-        "title": "",
-        "text": "",
-        "example": "",
+        "title": "Сдача в кинотеатре",
+        "text": "Вышел новый фильм про Мстителей. Люди стоят в очереди в кинотеатре. У каждого из них есть купюры по 100, 50 и 25 долларов для того, чтобы расплатиться за билет. Билет на фильм стоит 25 долларов. <br><br>Вася работает клерком. Он хочет попытаться продать билеты всем людям в очереди. Но может ли он это сделать, если у него в кассе нет денег?",
+        "example": "tickets([25, 25, 50]) == true <br>tickets([25, 100]) == false // Васе не хватит денег, чтобы выдать сдачу со 100 долларов <br>tickets([25, 25, 50, 50, 100]) == false // Васе снова не хватит денег, чтобы выдать 75 долларов сдачи<br>",
         "js_answer": ""
       },
       {
         "id": 40,
-        "title": "",
-        "text": "",
+        "title": "Кошачий возраст? Собачий возраст!",
+        "text": "У меня есть кот и собака. Я завёл их в одно и то же время. Это было humanYears (человеческих лет) назад. <br><br>Верните их текущий возраст как массив [humanYears, catYears, dogYears]. Если возраст кота и собаки рассчитывается по следующему правилу: <br><br>Кошачьи года: <br><ul><li>+15 кошачьих лет за первый год</li><li>+9 кошачьих лет за второй год</li><li>+4 кошачьих года за каждый следующий год</li></ul>Собачьи года: <br><ul><li>+15 собачьих лет за первый год</li><li>+9 собачьих лет за второй год</li><li>+5 собачьих лет за каждый следующий год</li></ul>",
         "example": "",
-        "js_answer": ""
+        "js_answer": "count_years = humanYearsAgo => {catYears = 0;dogYears = 0;switch (humanYearsAgo) {case 1:catYears = 15;dogYears = 15;break;case 2:catYears = 24;dogYears = 24;break;default:catYears = 24 + (humanYearsAgo-2) * 4;dogYears = 24 + (humanYearsAgo-2) * 5;};return [humanYearsAgo, catYears, dogYears];};console.log(count_years(3))"
       },
       {
         "id": 41,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Реверс слов",
+        "text": "Переставьте слова в предложении местами.",
+        "example": "reverse('Hello World') == 'World Hello'<br>reverse('Hi There.') == 'There. Hi'<br>",
+        "js_answer": "reverse = a => {a = a.split(' ').reverse().join(' ');;return(a);}console.log(reverse('Hello World'));"
       },
       {
         "id": 42,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Эврика!",
+        "text": "Возьмите число и просуммируйте его цифры, возведённые в степени и… Эврика! <br><br>Число 89 — первое двузначное число, для которого работает следующее правило: <br>89 = 8^1 + 9^2 <br><br>Следующим таким числом является число 135: <br>135 = 1^1 + 3^2 + 5^3 <br><br>Нужно написать функцию, которая будет искать числа, удовлетворяющие данному правилу в диапазоне от a до b (включительно). <br><br>",
+        "example": "sum_dig_pow(80, 135) == 89, 135",
+        "js_answer": "sum_dig_pow = (a, b) => {for(; a <= b; a++) {num_of_digits = ('' + a).length;cur_a_arr = Array.from(a + '');res = 0;for(i = 1; i <= num_of_digits; i++) {res += Math.pow(+cur_a_arr[i - 1], i);};if (res == a) {console.log(res)};}}sum_dig_pow(80, 140);"
       },
       {
         "id": 43,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Реверс букв",
+        "text": "Напишите функцию, которая принимает строку в качестве аргумента и возвращает её в развёрнутом виде.",
+        "example": "'This is an example!' == 'sihT si na !elpmaxe' <br>'double  spaces' == 'elbuod  secaps' <br>",
+        "js_answer": "reverse = a => {a = Array.from(a.split(' ').reverse().join(' ')).reverse().join('');return(a);};console.log(reverse('This is an example!'));"
       },
       {
         "id": 44,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Генератор последовательностей",
+        "text": "Ваша задача создать функцию, которая возвращает сумму последовательности целых чисел. Последовательность определяется тремся положительными числами: начало последовательности, конец, шаг.",
+        "example": "sequenceSum(2,2,2) === 2 <br>sequenceSum(2,6,2) === 12 // 2 + 4 + 6 <br>sequenceSum(1,5,1) === 15 // 1 + 2 + 3 + 4 + 5 <br>sequenceSum(1,5,3) === 5 // 1 + 4 <br>",
+        "js_answer": "sequenceSum = (a, b, c) => {for(res = 0; a <= b; a += c) {res = res + a};console.log(res);}sequenceSum(1,5,1);"
       },
       {
         "id": 45,
-        "title": "",
-        "text": "",
-        "example": "",
-        "js_answer": ""
+        "title": "Чарли и фотографии",
+        "text": "Алиса и Боб были на выходных. Каждый из них сделал множество фотографий мест, в которых они были и теперь хотят показать Чарли всю коллекцию. Чарли не очень любит смотреть фотографии, тем более, что большинство фотографий похожи. Ему бы не хотелось смотреть на фотографию Эйфелевой башни 40 раз. Он сказал, что готов посмотреть фотографии только в том случае, если в коллекции Алисы и Боба одно и то же место на фотографиях не будет встречаться чаще, чем n раз. Можете ли вы им помочь удалить из коллекции те числа, которые встретились уже более n раз?",
+        "example": "delete_nth([1,1,1,1],2) == [1,1]<br>delete_nth([20,37,20,21],1) == [20,37,21]<br>",
+        "js_answer": "delete_nth = (a, n) => {obj = {};for(i = 0; i < a.length; i++) {!obj[a[i]] ? obj[a[i]] = 1 : obj[a[i]] += 1;obj[a[i]] > n ? a[i] = 'R' : 0;};a = a.filter(x => x != 'R' );return a;};console.log(delete_nth([1,1,1,1],2));console.log(delete_nth([20,37,20,21],1));"
       }
     ]
   }
@@ -326,5 +326,5 @@ $(() => {
   // TEMPLATE RENDERING
   var task_template = $('#task_template').html();
   var compiled_task_template = handlebars.compile(task_template);
-  $(".tasks_container").html(compiled_task_template(tasks.tasks[0]));
+  $(".tasks_container").html(compiled_task_template(tasks));
 })
