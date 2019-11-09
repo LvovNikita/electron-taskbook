@@ -19,7 +19,6 @@
     <h1 class="display-4">Задачник по&nbsp;программированию</h1>
     <p class="lead">МАОУ «Радумльский лицей-интернат»</p>
   </div>
-
   <div class="container">
     <div class="row">
       <nav aria-label="Page navigation example" class="col-md-12">
@@ -99,72 +98,6 @@
           <hr>
           {{/each}}
         </script>
-
-        <!-- # 43 -->
-        <!-- <h4 id="N43">43. Реверс букв</h4>
-        Напишите функцию, которая принимает строку в качестве аргумента и возвращает её в развёрнутом виде. <br><br>
-        Например: <br><br>
-        <code>
-        "This is an example!" == "sihT si na !elpmaxe" <br>
-        "double  spaces" == "elbuod  secaps" <br>
-        </code>
-        <a class="btn btn-primary" data-toggle="collapse" href="#N43-JS-ANSWER" role="button" aria-expanded="false" aria-controls="#N43-JS-ANSWER">Решение на JavaScript</a>
-        <div class="collapse" id="N43-JS-ANSWER">
-          <div class="card card-body">
-            <pre>reverse = a => {
-    a = Array.from(a.split(' ').reverse().join(' ')).reverse().join('');
-    return(a);
-};
-console.log(reverse("This is an example!"));</pre>
-          </div>
-        </div>
-        <hr> -->
-        <!-- # 44 -->
-        <!-- <h4 id="N44">44. Генератор последовательностей</h4>
-        Ваша задача создать функцию, которая возвращает сумму последовательности целых чисел. Последовательность определяется тремся положительными числами: начало последовательности, конец, шаг. <br><br>
-        Например: <br><br>
-        <code>
-        sequenceSum(2,2,2) === 2 <br>
-        sequenceSum(2,6,2) === 12 // 2 + 4 + 6 <br>
-        sequenceSum(1,5,1) === 15 // 1 + 2 + 3 + 4 + 5 <br>
-        sequenceSum(1,5,3) === 5 // 1 + 4 <br>
-        </code>
-        <a class="btn btn-primary" data-toggle="collapse" href="#N44-JS-ANSWER" role="button" aria-expanded="false" aria-controls="#N44-JS-ANSWER">Решение на JavaScript</a>
-        <div class="collapse" id="N44-JS-ANSWER">
-          <div class="card card-body">
-            <pre>sequenceSum = (a, b, c) => {
-    for(res = 0; a <= b; a += c) {res = res + a};
-    console.log(res);
-}
-sequenceSum(1,5,1);</pre>
-          </div>
-        </div>
-        <hr> -->
-        <!-- # 45 -->
-        <!-- <h4 id="N45">45. Чарли и фотографии</h4>
-        Алиса и Боб были на выходных. Каждый из них сделал множество фотографий мест, в которых они были и теперь хотят показать Чарли всю коллекцию. Чарли не очень любит смотреть фотографии, тем более, что большинство фотографий похожи. Ему бы не хотелось смотреть на фотографию Эйфелевой башни 40 раз. Он сказал, что готов посмотреть фотографии только в том случае, если в коллекции Алисы и Боба одно и то же место на фотографиях не будет встречаться чаще, чем n раз. Можете ли вы им помочь удалить из коллекции те числа, которые встретились уже более n раз? <br><br>
-        Например: <br><br>
-        <code>
-        delete_nth([1,1,1,1],2) == [1,1]<br>
-        delete_nth([20,37,20,21],1) == [20,37,21]<br>
-        </code>
-        <a class="btn btn-primary" data-toggle="collapse" href="#N45-JS-ANSWER" role="button" aria-expanded="false" aria-controls="#N45-JS-ANSWER">Решение на JavaScript</a>
-        <div class="collapse" id="N45-JS-ANSWER">
-          <div class="card card-body">
-            <pre>delete_nth = (a, n) => {
-    obj = {};
-    for(i = 0; i < a.length; i++) {
-        !obj[a[i]] ? obj[a[i]] = 1 : obj[a[i]] += 1;
-        obj[a[i]] > n ? a[i] = "R" : 0;
-    };
-    a = a.filter(x => x != "R" );
-    return a;
-};
-console.log(delete_nth([1,1,1,1],2));
-console.log(delete_nth([20,37,20,21],1));</pre>
-          </div>
-        </div>
-        <hr> -->
         <!-- end -->
       </div>
     </div>

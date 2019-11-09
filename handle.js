@@ -304,21 +304,21 @@ $(() => {
         "title": "Реверс букв",
         "text": "Напишите функцию, которая принимает строку в качестве аргумента и возвращает её в развёрнутом виде.",
         "example": "'This is an example!' == 'sihT si na !elpmaxe' <br>'double  spaces' == 'elbuod  secaps' <br>",
-        "js_answer": "reverse = a => {a = Array.from(a.split(' ').reverse().join(' ')).reverse().join('');return(a);};console.log(reverse('This is an example!'));"
+        "js_answer": "reverse = a => {\n\ta = Array.from(a.split(' ').reverse().join(' ')).reverse().join('');\n\treturn(a);\n};\nconsole.log(reverse('This is an example!'));"
       },
       {
         "id": 44,
         "title": "Генератор последовательностей",
         "text": "Ваша задача создать функцию, которая возвращает сумму последовательности целых чисел. Последовательность определяется тремся положительными числами: начало последовательности, конец, шаг.",
         "example": "sequenceSum(2,2,2) === 2 <br>sequenceSum(2,6,2) === 12 // 2 + 4 + 6 <br>sequenceSum(1,5,1) === 15 // 1 + 2 + 3 + 4 + 5 <br>sequenceSum(1,5,3) === 5 // 1 + 4 <br>",
-        "js_answer": "sequenceSum = (a, b, c) => {for(res = 0; a <= b; a += c) {res = res + a};console.log(res);}sequenceSum(1,5,1);"
+        "js_answer": "sequenceSum = (a, b, c) => {\n\tfor(res = 0; a <= b; a += c) {res = res + a};\n\tconsole.log(res);\n}\nsequenceSum(1,5,1);"
       },
       {
         "id": 45,
         "title": "Чарли и фотографии",
         "text": "Алиса и Боб были на выходных. Каждый из них сделал множество фотографий мест, в которых они были и теперь хотят показать Чарли всю коллекцию. Чарли не очень любит смотреть фотографии, тем более, что большинство фотографий похожи. Ему бы не хотелось смотреть на фотографию Эйфелевой башни 40 раз. Он сказал, что готов посмотреть фотографии только в том случае, если в коллекции Алисы и Боба одно и то же место на фотографиях не будет встречаться чаще, чем n раз. Можете ли вы им помочь удалить из коллекции те числа, которые встретились уже более n раз?",
         "example": "delete_nth([1,1,1,1],2) == [1,1]<br>delete_nth([20,37,20,21],1) == [20,37,21]<br>",
-        "js_answer": "delete_nth = (a, n) => {obj = {};for(i = 0; i < a.length; i++) {!obj[a[i]] ? obj[a[i]] = 1 : obj[a[i]] += 1;obj[a[i]] > n ? a[i] = 'R' : 0;};a = a.filter(x => x != 'R' );return a;};console.log(delete_nth([1,1,1,1],2));console.log(delete_nth([20,37,20,21],1));"
+        "js_answer": "delete_nth = (a, n) => {\n\tobj = {};\n\tfor(i = 0; i < a.length; i++) {\n\t\t!obj[a[i]] ? obj[a[i]] = 1 : obj[a[i]] += 1;\n\t\tobj[a[i]] > n ? a[i] = 'R' : 0;\n\t};\n\ta = a.filter(x => x != 'R' );\n\treturn a;\n};\nconsole.log(delete_nth([1,1,1,1],2));\nconsole.log(delete_nth([20,37,20,21],1));"
       }
     ]
   }
