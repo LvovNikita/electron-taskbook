@@ -14,7 +14,8 @@
   "author": "Nikita Lvov",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^5.0.0"
+    "electron": "^5.0.0",
+    "electron-builder": "^22.1.0"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
