@@ -215,7 +215,7 @@ $(() => {
         "example": "expanded_form(12) == '10 + 2'<br>expanded_form(42) == '40 + 2'<br>expanded_form(70304) == '70000 + 300 + 4'",
         "js_answer": "expanded_form = num => {\n\tres = '';\n\tfor (i = 0; Math.floor(num/10) != num; i++) {\n\t\tif (num % 10) {res = num % 10 * Math.pow(10, i) + ' + ' + res}\n\t\tnum = Math.floor(num/10);\n\t}\n\tconsole.log(res.slice(0,-3))\n}\nexpanded_form(70304)"
       },
-      {W
+      {
         "id": 31,
         "title": "Повторяющиеся символы",
         "text": "Напишите функцию, которая вернёт количество символов (без чувствительности к регистру), повторяющихся более одного раза в строке. Строка может содержать как буквы, так и цифры.",
