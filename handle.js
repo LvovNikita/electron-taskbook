@@ -407,4 +407,11 @@ console.log(tickets([25, 25, 50, 100]));`
   var task_template = $('#task_template').html();
   var compiled_task_template = handlebars.compile(task_template);
   $(".tasks_container").html(compiled_task_template(tasks));
+
+  pagination_blocks = $(".pagination");
+  console.log(pagination_blocks);
+  for(i = 1; i <= 45; i++) {
+    n = Math.floor((i-1)/15); 
+    pagination_blocks[n].innerHTML += ('<li class="page-item"><a class="page-link" href="#N'+i+'">'+i+'</a></li>');
+  }
 })
