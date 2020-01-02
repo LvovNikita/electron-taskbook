@@ -10,7 +10,15 @@ $(() => {
         "title": "Сумма чисел",
         "text": "Даны два числа a и b, которые могут быть как положительными, так и отрицательными. Найдите и верните сумму всех чисел между ними, включая a и b. Если числа равны, верните a или b. Обратите внимание, что a и b могут быть переданы в функцию не в порядке возрастания.",
         "example": "get_sum(1, 0) == 1   // 1 + 0 = 1 <br> get_sum(1, 2) == 3   // 1 + 2 = 3 <br> get_sum(0, 1) == 1   // 0 + 1 = 1 <br> get_sum(1, 1) == 1   // Так как a = b <br> get_sum(-1, 0) == –1 // –1 + 0 = -1 <br> get_sum(-1, 2) == 2  // –1 + 0 + 1 + 2 = 2",
-        "js_answer": "var a = 10, b = 1;\nif (a > b) {[a, b] = [b, a]};\nfor (sum = 0; a <= b; a++)\n{sum += a}; console.log(sum);</pre>",
+        "js_answer": `var a = 10, b = 1;
+
+sum = (a,b) => {
+  if (a > b) {[a, b] = [b, a]};
+  for (sum = 0; a <= b; a++) {sum += a};
+  return sum;
+}
+
+console.log(sum(a, b));`,
       },
       {
         "id": 2,
@@ -24,21 +32,33 @@ $(() => {
         "title": "Составить наибольшее",
         "text": "Создайте функцию, которая принимает любое положительное число в качестве аргумента и возвращает наибольшее число, которое можно составить из этих же цифр.",
         "example": "Ввод: 21445 Вывод: 54421 <br> Ввод: 145263 Вывод: 654321 <br> Ввод: 1254859723 Вывод: 9875543221",
-        "js_answer": "a = 21445;\na = Array.from(a + '').sort().reverse().join('');\nconsole.log(a);"
+        "js_answer": `a = 21445;
+max = a => {
+  a = Array.from(a + '').sort().reverse().join('');
+  return(a);
+}
+console.log(max(a));`
       },
       {
         "id": 4,
         "title": "Сумма двух наименьших",
         "text": "Создайте функцию, которая возвращает сумму двух наименьших чисел из массива, минимальной длины 4 числа.",
         "example": "Ввод: [19, 5, 42, 2, 77] Вывод: 7. <br> Ввод: [10, 343445353, 3453445, 3453545353453] Вывод: 3453455",
-        "js_answer": ""
+        "js_answer": `a = [19, 5, 42, 2, 77];
+a = a.sort((x, y) => {return(x-y)})
+console.log(a[0] + a[1]);`
       },
       {
         "id": 5,
         "title": "Тролли атакуют!",
         "text": "Тролли атаковали форум! Чтобы нейтрализовать опасность, удалите все гласные буквы из комментариев троллей (напишите функцию, которая принимает строку и возвращает её без гласных букв).",
         "example": "Ввод: 'This website is for losers LOL!' Вывод: 'Ths wbst s fr lsrs LL!'",
-        "js_answer": "a = 'This website is for losers LOL!';\nconsole.log(a.replace(/[a,e,i,o,u,y]/ig, ''));"
+        "js_answer": `a = "This website is for losers LOL!";
+remove_vowels = a => {
+  a = a.replace(/[a,e,i,o,u,y]/ig, "");
+  return(a)
+}
+console.log(remove_vowels(a));`
       },
       {
         "id": 6,
@@ -64,9 +84,25 @@ $(() => {
       {
         "id": 9,
         "title": "Квадратный корень",
-        "text": "Напишите функцию, которая проверит, можно ли извлечь из числа квадратный корень. Использовать встроенные функции (sqrt) нельзя! Верните true или false.",
+        "text": "Напишите функцию, которая проверит, можно ли извлечь из целого числа квадратный корень. Использовать встроенные функции (sqrt) нельзя! Верните true или false.",
         "example": "is_square (-1) == false <br> is_square (0) == true <br> is_square (3) == false <br> is_square (4) == true <br> is_square (25) == true <br> is_square (26) == false",
-        "js_answer": ""
+        "js_answer": `is_square = a => {
+    res = a/2;
+    while (res * res > a) {
+      res = Math.ceil(res/2);
+      console.log(res);
+    }
+    min = res;
+    while (res <= min*2) {
+      if (res * res == a) {
+        return true;
+      }
+      res += 1;
+      console.log(res);
+    }
+    return false;
+}
+console.log(is_square(4900));`
       },
       {
         "id": 10,
@@ -101,7 +137,11 @@ $(() => {
         "title": "Двоичное в десятичное",
         "text": "Дан массива нулей и единиц, составляющих двоичное число. Конвертировать их в десятичную систему счисления.",
         "example": "[0, 0, 0, 1] == 1 <br>[0, 0, 1, 0] == 2 <br>[0, 1, 0, 1] == 5 <br>[0, 1, 1, 0] == 6 <br>[1, 0, 0, 1] == 9 <br>[1, 0, 1, 1] == 11 <br>[1, 1, 1, 1] == 15",
-        "js_answer": "a = [1, 0, 1, 0]\nbin = a.reduce((res, current, index) => {return res + Math.pow(current * 2, current != 0 ? a.length - index - 1 : 1)}, 0)\nconsole.log(bin);"
+        "js_answer": `a = [1, 0, 1, 0]
+dec = a.reduce((res, current, index) => {
+    return res + Math.pow(current * 2, current != 0 ? a.length - index - 1 : 1)
+}, 0)
+console.log(dec);`
       },
       {
         "id": 15,
@@ -114,7 +154,7 @@ $(() => {
         "id": 16,
         "title": "Чётное вхождение",
         "text": "Дан массив. Только одно число в этом массиве встречается чётное кол-во раз. Найдите и выведите это число.",
-        "example": "",
+        "example": "{1,2,3,4,5,6,2,7,8,9} == 2",
         "js_answer": "a = [1,2,3,4,5,6,2,7,8,9];\nobj = {};\na.forEach((elem) => {\n\tobj[elem] == undefined ? obj[elem] = 1 : obj[elem] += 1;\n});\nfor(elem in obj) {\n\tif(obj[elem] % 2 == 0) {console.log(elem)};\n};"
       },
       {
@@ -135,14 +175,14 @@ $(() => {
         "id": 19,
         "title": "Самое короткое слово",
         "text": "Вычислите длину самого короткого слова в строке.",
-        "example": "",
+        "example": "'WE ARE THE CHAMPIONS MY FRIEND' == 2",
         "js_answer": "a = 'WE ARE THE CHAMPIONS MY FRIEND';\na = a.split(' ').sort((x, y) => x.length - y. length)[0].length;\nconsole.log(a);"
       },
       {
         "id": 20,
         "title": "Двоичное сложение",
         "text": "Напишите функцию, которая складывает два двоичных числа и возвращает результат в двоичном виде.",
-        "example": "",
+        "example": "10101 + 1010 == 11111",
         "js_answer": "a = 0b10101, b = 0b1010;\nconsole.log((a + b).toString(2));"
       },
       {
@@ -171,7 +211,12 @@ $(() => {
         "title": "Изограммы",
         "text": "Изограмма — слово, в котором нет повторяющихся букв. Напишите функцию, которая проверит, является слово изограммой или нет.",
         "example": "is_isogram('Dermatoglyphics') == true <br>is_isogram('aba') == false <br>is_isogram('moOse') == false",
-        "js_answer": "is_isogram = a => {\n\ta = a.toLowerCase();\n\tconsole.log(a);\n\tobj = {};\n\tfor (elem in a) {\n\t\tif (obj[a[elem]] == undefined) {\n\t\t\tobj[a[elem]] = 1;\n\t\t} else {\n\t\t\treturn false;\n\t\t}\n\t}\n\treturn true;\n}\nconsole.log(is_isogram('Dermatoglyphics'));"
+        "js_answer": `is_isogram = a => {
+    b = new Set(a.toLowerCase());
+    if (a.length != b.size){return false;}
+    return true;
+}
+console.log(is_isogram('Dermatoglyphics'));`
       },
       {
         "id": 25,
@@ -184,7 +229,7 @@ $(() => {
         "id": 26,
         "title": "Является ли треугольником?",
         "text": "Напишите функцию, которая принимает три целых числа a, b, c. Функция должна вернуть true, если может быть построен треугольник со сторонами a, b, c и false в противном случае.",
-        "example": "",
+        "example": "{11, 6, 6} == true <br> {11, 3, 6} == false",
         "js_answer": "is_triangle = (a, b, c) => {\n\tsides = [a, b, c].sort((x, y) => {return x - y});\n\tif (sides[0] + sides[1] > sides[2]) {return true};\n\treturn false;\n}\nconsole.log(is_triangle(11, 6, 6));"
       },
       {
@@ -206,7 +251,11 @@ $(() => {
         "title": "Без наибольшего и наименьшего",
         "text": "Найти сумму без наибольшего и наименьшего элементов массива.",
         "example": "[6, 2, 1, 8, 10] == 16<br>[1, 1, 11, 2, 3] == 6",
-        "js_answer": ""
+        "js_answer": `a = [6, 2, 1, 8, 10];
+a = a.sort((x,y) => {return(x-y)});
+sum = -a[0] - a[a.length - 1];
+for(elem in a) {sum += a[elem]};
+console.log(sum);`
       },
       {
         "id": 30,
@@ -226,7 +275,7 @@ $(() => {
         "id": 32,
         "title": "Пробелы",
         "text": "Удалите все лишние пробелы из строки (между словами, в начале и в конце строки).",
-        "example": "",
+        "example": "'   hello  world ' == 'hello world'",
         "js_answer": "trim = a => {return a.replace(/\\s+/g, ' ').trim()}\nconsole.log(trim('   hello  world '));"
       },
       {
@@ -276,13 +325,44 @@ $(() => {
         "title": "Сдача в кинотеатре",
         "text": "Вышел новый фильм про Мстителей. Люди стоят в очереди в кинотеатре. У каждого из них есть купюры по 100, 50 и 25 долларов для того, чтобы расплатиться за билет. Билет на фильм стоит 25 долларов. <br><br>Вася работает клерком. Он хочет попытаться продать билеты всем людям в очереди. Но может ли он это сделать, если у него в кассе нет денег?",
         "example": "tickets([25, 25, 50]) == true <br>tickets([25, 100]) == false // Васе не хватит денег, чтобы выдать сдачу со 100 долларов <br>tickets([25, 25, 50, 50, 100]) == false // Васе снова не хватит денег, чтобы выдать 75 долларов сдачи",
-        "js_answer": ""
+        "js_answer": `tickets = a => {
+  cash = {25: 0, 50: 0};
+  for (elem in a) {
+    if (a[elem] == 25) {
+      cash[25] += 1
+    }
+    if (a[elem] == 50) {
+      if (cash[25] >= 1) {
+        cash[50] += 1;
+        cash[25] -= 1;
+      }
+      else {
+        return false;
+      }
+    }
+    if (a[elem] == 100) {
+      if (cash[50] >= 1 && cash[25] >= 1) {
+        cash[50] -= 1;
+        cash[25] -= 1;
+      } else if (cash[25] >= 3) {
+        cash[25] -= 3;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+  console.log(cash);
+  return(true);
+}
+
+console.log(tickets([25, 25, 50, 100]));`
       },
       {
         "id": 40,
         "title": "Кошачий возраст? Собачий возраст!",
         "text": "У меня есть кот и собака. Я завёл их в одно и то же время. Это было humanYears (человеческих лет) назад. <br><br>Верните их текущий возраст как массив [humanYears, catYears, dogYears]. Если возраст кота и собаки рассчитывается по следующему правилу: <br><br>Кошачьи года: <br><ul><li>+15 кошачьих лет за первый год</li><li>+9 кошачьих лет за второй год</li><li>+4 кошачьих года за каждый следующий год</li></ul>Собачьи года: <br><ul><li>+15 собачьих лет за первый год</li><li>+9 собачьих лет за второй год</li><li>+5 собачьих лет за каждый следующий год</li></ul>",
-        "example": "",
+        "example": "3 == [3, 28, 29]",
         "js_answer": "count_years = humanYearsAgo => {\n\tcatYears = 0;\n\tdogYears = 0;\n\tswitch (humanYearsAgo) {\n\t\tcase 1:\n\t\t\tcatYears = 15;\n\t\t\tdogYears = 15;\n\t\t\tbreak;\n\t\tcase 2:\n\t\t\tcatYears = 24;\n\t\t\tdogYears = 24;\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tcatYears = 24 + (humanYearsAgo-2) * 4;\n\t\t\tdogYears = 24 + (humanYearsAgo-2) * 5;\n\t};\n\treturn [humanYearsAgo, catYears, dogYears];\n};\nconsole.log(count_years(3))"
       },
       {
